@@ -2,40 +2,40 @@
 
 Desktop wrapper for [Nintendo Music](https://music.nintendo.com) using Electron with Widevine DRM support.
 
-## Requisitos
+## Requirements
 
 - Node.js 18+
 - npm
 
-## Instalación
+## Installation
 
 ```bash
 npm install
 ```
 
-## Ejecutar en desarrollo
+## Run in development
 
 ```bash
 npm start
 ```
 
-## Build para distribución
+## Build for distribution
 
 ```bash
 npm run dist
 ```
 
-El instalador se generará en `dist/`.
+The installer will be generated in `dist/`.
 
-## Estructura
+## Structure
 
 ```
-├── main.js          # Proceso principal de Electron
-├── preload.js       # Script de preload (context bridge)
-├── package.json     # Configuración del proyecto
-└── nintendo_music.ico  # Icono de la aplicación
+├── main.js          # Electron main process
+├── preload.js       # Preload script (context bridge)
+├── package.json     # Project configuration
+└── nintendo_music.ico  # App icon
 ```
 
-## Licencia
+## License
 
 MIT
