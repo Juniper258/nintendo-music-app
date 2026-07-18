@@ -1,0 +1,39 @@
+{
+  "name": "nintendo-music",
+  "version": "1.0.0",
+  "description": "Nintendo Music - Electron Desktop App",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win && node -e \"const fs=require('fs'),p=require('path');['icudtl.dat','chrome_100_percent.pak','chrome_200_percent.pak','resources.pak','snapshot_blob.bin','v8_context_snapshot.bin','version','vk_swiftshader_icd.json','vk_swiftshader.dll','vulkan-1.dll'].forEach(f=>fs.copyFileSync(p.join('node_modules/electron/dist',f),p.join('dist/win-unpacked',f)))\"",
+    "dist-sign": "electron-builder --win && node -e \"const fs=require('fs'),p=require('path');['icudtl.dat','chrome_100_percent.pak','chrome_200_percent.pak','resources.pak','snapshot_blob.bin','v8_context_snapshot.bin','version','vk_swiftshader_icd.json','vk_swiftshader.dll','vulkan-1.dll'].forEach(f=>fs.copyFileSync(p.join('node_modules/electron/dist',f),p.join('dist/win-unpacked',f)))\" && python -m castlabs_evs.vmp sign-pkg dist/win-unpacked"
+  },
+  "keywords": [
+    "nintendo",
+    "music",
+    "electron"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "github:castlabs/electron-releases#v42.0.0+wvcus",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.nintendo.music.desktop",
+    "productName": "Nintendo Music",
+    "directories": {
+      "output": "dist"
+    },
+    "electronDist": "./node_modules/electron/dist",
+    "win": {
+      "target": "nsis",
+      "icon": "nintendo_music.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true
+    }
+  }
+}
